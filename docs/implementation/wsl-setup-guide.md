@@ -251,4 +251,6 @@ kubectl logs -n trivy-system deployment/trivy-operator
 kubectl get events -A --sort-by='.lastTimestamp'
 ```
 
-This setup provides a complete, locally-running Kubernetes security lab perfect for learning, testing, and developing security policies!
+---
+
+**Local Kubernetes Security Lab**: Complete environment for learning and testing security policies.
