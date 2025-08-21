@@ -11,7 +11,7 @@ Cloud-Security-Stack/
 ├── docs/                              # Documentation
 │   ├── architecture/                  # Architecture documents
 │   │   ├── cloud-security-hardening-blueprint.md
-│   │   └── setabr-service-stack.md
+│   │   └── example-service-stack.md
 │   ├── evaluation/                    # Tool evaluation and analysis
 │   │   └── security-tools-evaluation-matrix.md
 │   └── implementation/                # Implementation guides
@@ -106,7 +106,7 @@ Cloud-Security-Stack/
 cat docs/architecture/cloud-security-hardening-blueprint.md
 
 # Understand your current infrastructure
-cat docs/architecture/setabr-service-stack.md
+cat docs/architecture/example-service-stack.md
 ```
 
 ### 2. **Evaluate Security Tools**

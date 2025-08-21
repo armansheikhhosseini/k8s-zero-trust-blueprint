@@ -472,7 +472,7 @@ spec:
   egress:
   - toEndpoints:
     - matchLabels:
-        k8s:io.kubernetes.pod.namespace: setabr
+        k8s:io.kubernetes.pod.namespace: messaging
         app: kafka
     toPorts:
     - ports:
