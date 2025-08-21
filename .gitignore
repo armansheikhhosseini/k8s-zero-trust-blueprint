@@ -1,0 +1,51 @@
+# IDE and Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/
+
+# Security sensitive files
+secrets/
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+
+# Kubernetes temporary files
+*.yaml.tmp
+*.yml.tmp
+
+# Backup files
+*.bak
+*.backup
+
+# Local environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Config files with sensitive data
+**/config/secrets.yaml
+**/config/credentials.yaml
