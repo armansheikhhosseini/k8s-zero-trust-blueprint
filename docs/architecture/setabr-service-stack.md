@@ -1,11 +1,13 @@
-# 🏗️ Kubernetes Technology Stack by Service Layer
+# 🏗️ Example Kubernetes Technology Stack Architecture
+
+> **Note**: This document provides an example of a real-world Kubernetes infrastructure architecture for educational purposes. All product-specific and business-sensitive information has been anonymized.
 
 ## 🏢 Infrastructure as a Service (IaaS)
 
 ### 💻 Compute Resources
 
-* Hetzner BMS (Bare Metal Servers)  
-* OpenNebula (Virtualization Platform)
+* Bare Metal Servers (Cloud Provider)  
+* Virtualization Platform (OpenNebula/VMware)
 
 ### ⚙️ Configuration Management
 
@@ -119,20 +121,20 @@
 
 
 
-# 🚀 Products Service Layers Cluster
+# 🚀 Example Multi-Cluster Architecture
 
 ## Clusters Overview
 
-| Cluster Name | Purpose | Namespaces |
+| Cluster Name | Purpose | Example Namespaces |
 | :---- | :---- | :---- |
-| **Nebula** | Infrastructure Management | Core Infrastructure Services |
-| **Uranus** | Production Environment | arzdigital-prod, prime-prod, ata-prod |
-| **Voyager** | Development Environment | arzdigital-dev |
-| **Ranger** | Development Environment | prime-dev |
-| **Apollo** | Development Environment | ata-dev |
-| **Setabr** | Message Broker Services | Kafka for all products |
+| **Infrastructure** | Infrastructure Management | Core Infrastructure Services |
+| **Production** | Production Environment | product-a-prod, product-b-prod, product-c-prod |
+| **Development-A** | Development Environment | product-a-dev |
+| **Development-B** | Development Environment | product-b-dev |
+| **Development-C** | Development Environment | product-c-dev |
+| **Messaging** | Message Broker Services | Kafka for all products |
 
-## 🌌 Nebula Cluster (Infrastructure)
+## 🌌 Infrastructure Cluster
 
 Main cluster management platforms:
 
@@ -154,82 +156,78 @@ Infrastructure management services including:
 * Kubecost Analyzer  
 * Longhorn  
 * MinIO Operator  
-* Infra n8n  
+* n8n Workflows  
 * PSMDB Operator  
 * Redis  
 * Sentry  
 * SonarSource  
-* Telegram Alerting  
+* Alerting Systems  
 * Velero
 
-## 🪐 Uranus Cluster (Production)
+## 🪐 Production Cluster
 
-### Arzdigital Production (arzdigital-prod)
+### Product A Production (product-a-prod)
 
-* arz-appserver-prod  
-* arz-argus-alert-prod & seeder-prod  
-* arz-automate-breaking-news-service-prod  
-* arz-crypto-pulse-prod  
-* arz-discourse-controller-prod  
-* arz-dispatcher-prod  
-* arz-fides-loyalty-program-prod  
-* arz-heimdall-prod  
-* arz-hermes-prod  
-* arz-hr-landing-prod  
-* arz-ideas-prod  
-* arz-lahze-service-prod & web-prod  
-* arz-market-alert-prod  
-* Multiple MA (Mini App) services:  
+Example microservices architecture:
+* app-server-prod  
+* alert-service-prod  
+* notification-service-prod  
+* api-gateway-prod  
+* user-management-prod  
+* content-service-prod  
+* analytics-service-prod  
+* Multiple microservices:  
   * account-api-prod & admin-api-prod  
-  * airdrop-services-prod  
-  * price-services-prod  
+  * messaging-services-prod  
+  * data-processing-prod  
   * task-services-prod  
-  * telegram-api-prod  
-  * visit-services-prod  
-  * warehouse-prod  
-* arz-mini-app-components-prod  
-* arz-morpheus-story-prod  
-* arz-nexus-prod  
-* arz-notification-dispatch-service-prod  
-* arz-revive-ads-prod & controller-prod  
-* arz-social-news-delivery-prod  
-* arz-subvia-prod  
-* arz-telegram-dispatcher-prod  
-* arz-trends-prod
+  * integration-api-prod  
+  * storage-services-prod  
+  * workflow-engine-prod  
+* frontend-components-prod  
+* monitoring-service-prod  
+* security-service-prod  
+* dispatch-service-prod  
+* social-integration-prod  
+* proxy-service-prod  
+* telegram-integration-prod  
+* analytics-trends-prod
 
-### Prime Production (prime-prod)
+### Product B Production (product-b-prod)
 
-* prime-airflow-prod  
-* prime-assets-manager-prod  
-* prime-clickhouse-prod  
-* prime-exchange-historical-data-prod  
-* prime-exchanges-last-ticker-prod  
-* prime-highvolumewritetest-prod  
-* prime-muninn-prod  
-* prime-odin-prod  
-* prime-price-collector-prod  
-* prime-socket-prod  
-* prime-web-client-prod  
-* prime-ws-exchange-demo-prod  
-* prime-sentinel-prod
+Example data processing platform:
+* data-pipeline-prod  
+* asset-manager-prod  
+* database-cluster-prod  
+* historical-data-service-prod  
+* real-time-data-service-prod  
+* performance-testing-prod  
+* data-collector-prod  
+* security-scanner-prod  
+* api-service-prod  
+* websocket-service-prod  
+* web-client-prod  
+* demo-environment-prod  
+* monitoring-service-prod
 
-### ATA Production (ata-prod)
+### Product C Production (product-c-prod)
 
-* ata-alerts-prod  
-* ata-bots-prod  
-* ata-cron-job-prod  
-* ata-dashboard-api-prod  
-* ata-dashboard-prod  
-* ata-markets-prod  
-* ata-matches-prod  
-* ata-proxy-prod  
-* ata-report-prod  
-* ata-wordpress-prod  
-* tradesk-wordpress-prod
+Example business application:
+* alert-system-prod  
+* automation-bots-prod  
+* scheduled-jobs-prod  
+* dashboard-api-prod  
+* dashboard-frontend-prod  
+* market-data-prod  
+* matching-engine-prod  
+* proxy-service-prod  
+* reporting-service-prod  
+* cms-system-prod  
+* partner-cms-prod
 
-### SSO (Production)
+### Single Sign-On (Production)
 
-* sso-anubis-prod
+* sso-service-prod
 
 ### Supporting Services for Production
 
@@ -349,38 +347,38 @@ Infrastructure management services including:
 * Longhorn  
 * MinIO Operator  
 * MongoDB  
-* n8n Workflow for Prime  
+* n8n Workflow for Demo  
 * PSMDB Operator  
 * Telegram Alerting  
 * Velero
 
-## 🚀 Apollo Cluster (ATA Development)
+## 🚀 Development Cluster (App Development)
 
-### ATA Development (ata-dev)
+### Application Development (app-dev)
 
-* ata-alerts-dev  
-* ata-bots-dev  
-* ata-cron-job-dev  
-* ata-dashboard-api-dev  
-* ata-dashboard-dev & test  
-* ata-markets-dev  
-* ata-matches-dev  
-* ata-proxy-dev  
-* ata-report-dev  
-* ata-wordpress-dev  
-* tradesk-wordpress-dev
+* app-alerts-dev  
+* app-bots-dev  
+* app-cron-job-dev  
+* app-dashboard-api-dev  
+* app-dashboard-dev & test  
+* app-markets-dev  
+* app-matches-dev  
+* app-proxy-dev  
+* app-report-dev  
+* app-wordpress-dev  
+* trading-wordpress-dev
 
-### Infrastructure Services for ATA Development
+### Infrastructure Services for App Development
 
-* apollo-events-exporter  
-* apollo-logging-system  
-* apollo-longhorn  
-* apollo-minio-operator  
-* apollo-telegram-alerting  
-* apollo-velero
+* dev-events-exporter  
+* dev-logging-system  
+* dev-longhorn  
+* dev-minio-operator  
+* dev-telegram-alerting  
+* dev-velero
 
-## 📨 Setabr Cluster (Message Brokers)
+## 📨 Messaging Cluster (Message Brokers)
 
 Dedicated to message broker services:
 
-* Stellar Kafka
+* Message Kafka
