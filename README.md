@@ -22,8 +22,10 @@ Cloud-Security-Stack/
 │   ├── cilium/                        # Network policies
 │   └── trivy/                         # Scanning configurations
 ├── scripts/                           # Deployment and utility scripts
-│   ├── deploy-phase1-tools.sh         # Automated deployment
-│   └── security-health-check.sh       # Security validation
+│   ├── deploy-phase1-tools.sh         # Automated deployment (Linux/Production)
+│   ├── deploy-phase1-tools-wsl.sh     # WSL/Local optimized deployment
+│   ├── security-health-check.sh       # Security validation (Production)
+│   └── security-health-check-wsl.sh   # WSL/Local optimized health check
 └── README.md                          # This file
 ```
 
@@ -47,6 +49,12 @@ Cloud-Security-Stack/
 - Custom configurations for your environment
 - Integration with existing infrastructure
 - Validation and monitoring setup
+
+#### 4. **WSL Setup Guide** (`docs/implementation/wsl-setup-guide.md`)
+- WSL-specific setup instructions
+- Minikube and Docker Desktop optimization
+- Local development and testing
+- Troubleshooting for WSL environments
 
 ## 🛡️ Key Security Layers Identified
 
@@ -165,13 +173,36 @@ Month 6: Automation & Compliance
 - Continuous security optimization
 ```
 
-## 🎯 Immediate Next Steps
+## 🚀 **Quick Start for WSL Users**
 
-### 1. **Environment Preparation** (This Week)
-- [ ] Set up dedicated security namespaces
-- [ ] Prepare Helm repositories and charts
-- [ ] Configure RBAC for security tools
-- [ ] Plan maintenance windows for deployments
+Perfect! Your WSL environment with Minikube and Docker Desktop is ideal for testing this security framework.
+
+### **Immediate Setup (WSL)**
+```bash
+# 1. Navigate to repository (in WSL)
+cd /mnt/c/path/to/Cloud-Security-Stack
+
+# 2. Make scripts executable
+chmod +x scripts/*.sh
+
+# 3. Start your Kubernetes environment
+minikube start --cpus=4 --memory=4096  # or use Docker Desktop
+
+# 4. Deploy security tools (WSL-optimized)
+./scripts/deploy-phase1-tools-wsl.sh
+
+# 5. Validate deployment
+./scripts/security-health-check-wsl.sh
+```
+
+### **What You Get**
+- ✅ **Complete security lab** running locally
+- ✅ **Resource-optimized** for local development
+- ✅ **Test applications** for experimenting with policies
+- ✅ **Real security tools** (Falco, OPA Gatekeeper, Trivy)
+- ✅ **Hands-on learning** environment
+
+📖 **Detailed WSL guide**: [`docs/implementation/wsl-setup-guide.md`](docs/implementation/wsl-setup-guide.md)
 
 ### 2. **Phase 1 Tool Selection Validation** (Next Week)
 - [ ] Review OPA Gatekeeper policies for your use cases
